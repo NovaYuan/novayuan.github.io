@@ -1,0 +1,58 @@
+@import "../define"
+@import "compass/css3"
+
+.create-popup
+  width: 50%
+  margin: 100px auto
+  background: white
+  padding: 30px
+
+  .name
+    color: #777
+    margin-bottom: 20px
+
+.input-group
+  .title,.content,.group
+    width: 95%
+    font-size: 18px
+    padding: 10px
+    outline: none
+    border-radius: 5px
+    border: 1px solid rgb(223,223,223)
+    margin-bottom: 20px
+
+  .content
+    resize: none
+    height: 200px
+
+  i,.tag
+    margin: 0
+    font-size: 18px
+    color: $nav-font-color
+    border: none
+    outline: none
+
+.btn-group
+  .dismiss,.submit
+    padding: 10px 30px
+    border: none
+    border-radius: 5px
+    outline: none
+    background: rgb(230,230,230)
+    box-shadow: 2px 2px 2px gray
+    font-size: 18px
+
+    &:hover
+      background: -webkit-linear-gradient(top,#fff,rgb(230,230,230))
+      background: -moz-linear-gradient(top,#fff,rgb(230,230,230))
+      background: -o-linear-gradient(top,#fff,rgb(230,230,230))
+      background: linear-gradient(top,#fff,rgb(230,230,230))
+      cursor: pointer
+
+  .submit
+    background: rgb(128,171,0)
+    color: #ffffff
+    float: right
+
+    &:hover
+      background: rgb(155,207,1)

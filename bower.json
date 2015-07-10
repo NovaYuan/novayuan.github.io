@@ -1,0 +1,20 @@
+{
+  "name": "real",
+  "version": "0.0.0",
+  "authors": [
+    "qiujuan_yuan@163.com"
+  ],
+  "description": "real for me",
+  "keywords": [
+    "544203682"
+  ],
+  "license": "MIT",
+  "homepage": "index",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

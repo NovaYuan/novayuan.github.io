@@ -1,0 +1,29 @@
+<header class="blog-header">
+  <nav class="blog-nav">
+    <hr/>
+    <a href="#"><span  class="name">{{username}}</span></a>
+    <a href="#"><span>日记</span></a>
+    <a href="#"><span>随意</span></a>
+    <a href="#"><span>不想说</span></a>
+  </nav>
+</header>
+<div class="article">
+  <ul>
+    <script type="text/x-handlebars-template" class="article-list">
+      <li>
+        <a href="#" class="">
+          <span class="date">{{date}}</span>
+          <span class="title">《{{title}}》</span>
+          <span class="describe">{{content}}</span>
+        </a>
+      </li>
+    </script>
+  </ul>
+</div>
+
+<div class="paper">
+  <h1 class="title">{{title}}</h1>
+  <div class="article-content">
+    {{content}}
+    </div>
+</div>

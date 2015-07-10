@@ -1,0 +1,91 @@
+@import "../define"
+@import "compass/css3"
+
+.blog-header
+  text-align: center
+
+.blog-nav
+  margin-top: 60px
+  height: $header-height
+  hr
+    border-top: 1px solid gray
+    border-bottom: none
+    border-left: none
+    border-right: none
+    position: relative
+    top: -13px
+
+  a
+    height: 100px
+    width: 100px
+    padding: 20px 10px
+    border-radius: 100px
+    text-align: center
+    margin-left: 40px
+
+    &:before
+      border: 2px solid #ddd
+      content: ""
+      position: relative
+      top: -30px
+      left: 10px
+
+    &:after
+      content: ""
+      border: 2px solid #ddd
+      position: relative
+      top: -30px
+      left: -10px
+
+    span
+      margin: auto
+      font-size: 20px
+      font-weight: bold
+      color: white
+
+.article
+  float: left
+  width: 25%
+  background: seashell
+  border-radius: 20px
+  box-shadow: 1px 1px 6px #004444
+  margin: 30px 30px auto 100px
+  ul
+    list-style: none
+    padding: 10px
+    li
+      a
+        display: inherit
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+
+        span
+          margin-left: 20px
+          font-size: 20px
+          line-height: 40px
+
+.date
+  color: #008800
+.title
+  font-weight: bold
+.describe
+  color: gray
+
+.paper
+  margin-left: 38%
+  margin-right: 100px
+  margin-top: 30px
+  border-radius: 10px
+  box-shadow: 1px 1px 5px black
+
+  h1
+    text-align: center
+    padding: 30px
+    margin: 0
+    color: #080
+
+  .article-content
+    padding: 0 30px 30px
+    font-size: 20px
+    color: gray

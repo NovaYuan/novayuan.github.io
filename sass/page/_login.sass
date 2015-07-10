@@ -1,0 +1,63 @@
+@import "../define"
+@import "compass/css3"
+
+.login-body
+  background: $albums-color
+
+.login-frame
+  margin: $header-height auto
+  width: 50%
+  background: #ffffff
+  border: 1px solid $up-down-color
+
+  img
+    width: 203px
+    height: 160px
+
+  .input-group
+    margin: -$header-height auto auto
+    text-align: center
+
+    .auto-login
+      margin-right: 1em
+
+    .login-title
+      color: #339999
+      font-weight: 400
+
+    .username,.password
+      font-size: 18px
+      border-radius: 5px
+      border: 1px solid #ddd
+      outline: none
+      padding: 10px
+      margin: 0 auto 20px
+
+    .check-group,.login-btn
+      margin: 0 auto 20px
+
+    .login-btn
+      width: 250px
+      height: 35px
+      background-color: #339999
+      font-size: 16px
+      color: white
+      font-weight: bold
+      letter-spacing: 6px
+      border: 0px
+      cursor: pointer
+      border-radius: 5px
+
+  .close-btn
+    float: right
+    margin-top: -80px
+    font-size: 20px
+    &:hover
+      @include transform(rotate(30deg))
+      cursor: pointer
+
+.id-error
+  display: none
+  margin: 0 auto 5px
+  font-size: 12px
+  color: red
