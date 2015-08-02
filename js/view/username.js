@@ -1,15 +1,14 @@
-var Username = (function () {
-  var Username = Backbone.View.extend ({
-    el: $('.name'),
-    initialize: function () {
-      this.collection.username = this.collection.models[0].attributes.username;
+var User = (function () {
+    var User = Backbone.View.extend ({
+        initialize: function () {
+            data = this.collection.toJSON();
 
-      this.render()
-    },
-    render: function (){
-      this.$el.html("欢迎，"+ this.collection.username);
-      return this;
-    }
-  });
-  return Username;
+            this.render();
+        },
+        render: function(){
+            $(".nickname").text(data[0].nickname);
+            $(".motto").text(data[0].motto);
+        }
+    });
+  return User;
 }());

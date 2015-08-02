@@ -18,9 +18,9 @@
       </ul>
     </nav>
     <div class="portrait">
-      <img src="images/lleft.jpg" alt="头像" title="{{name}}">
-      <p class="nickname">以西</p>
-      <p class="motto">何向以西</p>
+      <img src="images/lleft.jpg" alt="头像" title="{{nickname}}">
+      <p class="nickname">{{nickname}}</p>
+      <p class="motto">{{motto}}</p>
       <i class="fa fa-circle-o"></i>
     </div>
   </header>
@@ -30,15 +30,24 @@
     </div>
 
     <div class="article">
-      <h3>{{title}}</h3>
-      {{content}}
+      <h3 class="title">{{title}}</h3>
+      <div class="content">{{content}}</div>
     </div>
     <div class="operate">
-      <span class="date">2015.11.1</span>
+      <span class="date">{{date}}2015.11.1</span>
     </div>
   </div>
   <div class='popup'></div>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="js/real.js"></script>
+<script src="bower_components/handlebars/handlebars.js"></script>
+<script src="bower_components/underscore/underscore-min.js"></script>
+<script src="bower_components/backbone/backbone.js"></script>
+<!--<script src="js/real.js"></script>-->
+<script src="js/model/Me.js"></script>
+<script src="js/model/ListCollection.js"></script>
+<script src="js/view/username.js"></script>
+<script src="js/view/write.js"></script>
+<script src="js/view/popup.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

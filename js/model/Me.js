@@ -1,4 +1,4 @@
-var Me = (function () {
+var Accounts = (function () {
   var Model = Backbone.Model.extend ({
     url: '/me/',
     defaults: {
@@ -6,11 +6,11 @@ var Me = (function () {
       password: '123456'
     }
   })
-  , Me = Backbone.Collection.extend ({
+  , Accounts = Backbone.Collection.extend ({
     model: Model,
     parse: function (response) {
       return response;
     }
   });
-  return Me;
+  return Accounts;
 }());

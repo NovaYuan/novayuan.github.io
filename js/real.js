@@ -11,6 +11,6 @@
 })();
 
 function dismiss(){
-  var popup = $(".popup");
-  popup.css({display: "none"});
+    var popup = $(".popup");
+    popup.css({display: "none"});
 }
