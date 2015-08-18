@@ -1,6 +1,5 @@
 
 .sass-cache
 .idea
-bower_components
-css
+#bower_components
 npm-debug.log
