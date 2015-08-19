@@ -1,11 +1,12 @@
 var Popup = (function () {
     var Popup = Backbone.View.extend ({
+        el: 'body',
         events: {
-           "click .create": "create"
+           "click .create": "createArticle",
+           "click .dismiss": "closeWin"
         } ,
         initialize: function () {
             data = this.collection.toJSON();
-
             this.render();
         },
         render: function(){
@@ -15,15 +16,19 @@ var Popup = (function () {
 
             return this;
         },
-        create: function(){
+        createArticle: function(){
             var options = $(".create").data();
             options.content = 'page/' + options.template;
             $.get(options.content, function(response){
                 var popup = $(".popup");
-                popup.css({display: "block"});
+                popup.fadeIn();
                 popup.html(response);
-                console.log("1");
             });
+        },
+        closeWin: function(){
+            var popup = $(".popup");
+            popup.fadeOut();
+            $(".create-popup").remove();
         }
     });
     return Popup;

@@ -18,5 +18,6 @@
     });
     var popup = new Popup({
         collection: account
-    })
+    });
+    var base = new Base();
 }());
