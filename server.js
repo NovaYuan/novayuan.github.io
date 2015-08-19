@@ -7,7 +7,6 @@ var app = express();
 
 app.set('port', (process.env.PORT || 3001));
 app.use('/', express.static(path.join(__dirname, 'novayuan.github.io')));
-console.log(express.static(path.join(__dirname, 'novayuan.github.io')))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
