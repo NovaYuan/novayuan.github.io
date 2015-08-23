@@ -2,8 +2,9 @@ var Popup = (function () {
     var Popup = Backbone.View.extend ({
         el: 'body',
         events: {
-           "click .create": "createArticle",
-           "click .dismiss": "closeWin"
+            "click .create": "createArticle",
+            "click .dismiss": "closeWin",
+            "click .article-submit": "submit"
         } ,
         initialize: function () {
             data = this.collection.toJSON();
@@ -29,6 +30,9 @@ var Popup = (function () {
             var popup = $(".popup");
             popup.fadeOut();
             $(".create-popup").remove();
+        },
+        submit: function(){
+
         }
     });
     return Popup;
