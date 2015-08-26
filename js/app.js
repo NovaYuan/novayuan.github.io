@@ -1,4 +1,6 @@
 (function () {
+    //var login = new Login();
+    //login.save();
     var account = new Accounts();
     account.set({
         "nickname": "以西",

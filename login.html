@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>haloworld</title>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/screen.css"/>
+</head>
+<body>
+    <div class="loading login-loading">
+        <i class="fa fa-spinner fa-spin"></i>
+    </div>
+    <form class="login-form">
+        <fieldset class="login-frame">
+            <legend><i class="fa fa-cloud"></i></legend>
+            <div class="input-group">
+                <h2 class="login-title">登录</h2>
+                <span class="id-error"></span>
+                <input class="username" type="text" id="userName" placeholder="用户名"/><br/>
+                <span id="pass-error" disabled></span>
+                <input class="password" type="password" id="pwd" placeholder="密码"/><br/>
+                <div class="check-group">
+                    <input id="auto-login" class="auto-check" type="checkbox" checked />
+                    <label for="auto-login" class="auto-login">下次自动登录</label>
+                    <a class="forget-pwd" href="#" target="_blank">忘记密码</a>
+                    <a id="now-register" href="register.html" target="_blank">立即注册</a>
+                </div>
+                <input class="login-btn" type="submit" value="登录"/>
+            </div>
+        </fieldset>
+    </form>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/backbone/backbone.js"></script>
+    <script src="js/model/Me.js"></script>
+    <script src="js/model/ListCollection.js"></script>
+    <script src="js/view/username.js"></script>
+    <script src="js/view/write.js"></script>
+    <script src="js/view/popup.js"></script>
+    <script src="js/view/base.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
