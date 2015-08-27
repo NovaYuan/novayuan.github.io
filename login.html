@@ -11,7 +11,7 @@
     <div class="loading login-loading">
         <i class="fa fa-spinner fa-spin"></i>
     </div>
-    <form class="login-form">
+    <form class="login-form" action="#/me/" method="post">
         <fieldset class="login-frame">
             <legend><i class="fa fa-cloud"></i></legend>
             <div class="input-group">
@@ -26,7 +26,7 @@
                     <a class="forget-pwd" href="#" target="_blank">忘记密码</a>
                     <a id="now-register" href="register.html" target="_blank">立即注册</a>
                 </div>
-                <input class="login-btn" type="submit" value="登录"/>
+                <input class="login-btn submit" type="submit" value="登录"/>
             </div>
         </fieldset>
     </form>
@@ -36,6 +36,7 @@
     <script src="bower_components/backbone/backbone.js"></script>
     <script src="js/model/Me.js"></script>
     <script src="js/model/ListCollection.js"></script>
+    <script src="js/view/login.js"></script>
     <script src="js/view/username.js"></script>
     <script src="js/view/write.js"></script>
     <script src="js/view/popup.js"></script>

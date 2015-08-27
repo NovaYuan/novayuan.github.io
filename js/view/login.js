@@ -1,14 +1,17 @@
 var Login = (function(){
-    var Login = Backbone.Model.extend({
-        url: '/login',
+    var Login = Backbone.View.extend({
         events:{
-            "keyup .username": "username",
-            "click .login-btn": "submit"
+            "submit .login-btn": "submit"
         },
         submit: function(){
-            $.ajax({
-
-            })
+            var username = $(".username").val()
+                , password = $(".password").val();
+            this.model.save();
+            //$.ajax({
+            //    url: url,
+            //    dataType: "json",
+            //    type: "POST"
+            //})
         }
     });
     return Login;

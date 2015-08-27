@@ -1,10 +1,11 @@
 (function () {
-    //var login = new Login();
-    //login.save();
     var account = new Accounts();
     account.set({
-        "nickname": "以西",
-        "motto": "何向以西"
+        "nickname": "test",
+        "motto": "good good study"
+    });
+    var login = new Login({
+        collection: account
     });
     var articles = new ArticleCollection();
     articles.set({

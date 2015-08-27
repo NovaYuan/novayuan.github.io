@@ -1,13 +1,13 @@
 var Accounts = (function () {
-  var Model = Backbone.Model.extend ({
+  var Me = Backbone.Model.extend ({
     url: '/me/',
     defaults: {
-      username: 'qiujuan',
-      password: '123456'
+      username: 'test',
+      password: '1234'
     }
   })
   , Accounts = Backbone.Collection.extend ({
-    model: Model,
+    model: Me,
     parse: function (response) {
       return response;
     }
