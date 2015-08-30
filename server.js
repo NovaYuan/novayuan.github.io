@@ -1,18 +1,59 @@
 //http请求及路由
-var http = require("http"),
-    url  = require("url"),
+var url  = require("url"),
     path = require("path"),
-    fs   = require("fs");
+    fs   = require("fs"),
+    express = require("express"),
+    bodyParser = require('body-parser'),
+    app = express();
+    http = require("http").createServer(app).listen(8080,"127.0.0.1");
 
-http.createServer(function (req, res) {
-    var pathname = __dirname + url.parse(req.url).pathname;
+//创建数据库连接
+var sqlite3 = require('sqlite3').verbose(),
+    db = new sqlite3.Database("db/halo.db");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+//首页数据
+app.get('/', function(req,res){
+    db.all()
+});
+
+//登录页面验证
+app.post('/me', function(req,res){
+    db.all("select * from user where username = ? and password=?",req.body.username, req.body.password,function(err, rows){
+        if(rows){
+            rows.forEach(function(row){
+                console.log(row.username == req.body.username && row.password == req.body.password);
+                if(row.username == req.body.username && row.password == req.body.password){
+                    console.log("ok");
+                    res.setHeader('Cache-Control', 'no-cache');
+                    res.send("验证成功");
+                    return;
+                }else{
+                    console.log("用户或密码不正确");
+                    res.send("用户或密码不正确");
+                    return;
+                }
+            });
+            db.close();
+        }else{
+            res.setHeader('Cache-Control', 'no-cache');
+            res.send("用户或密码不正确");
+            return;
+        }
+    });
+});
+
+app.use (function (req, res) {
+    var proUrl = url.parse(req.url).pathname;
+    var pathname = __dirname + proUrl;
     if (path.extname(pathname) == "") {
         pathname += "/";
     }
     if (pathname.charAt(pathname.length - 1) == "/") {
-        pathname += "login.html";
+        pathname += "index.html";
     }
-
     fs.exists(pathname,function(exists){
         if(exists){
             switch (path.extname(pathname)){
@@ -40,7 +81,7 @@ http.createServer(function (req, res) {
 
             fs.readFile(pathname, function(err,data){
                 res.end(data);
-            })
+            });
         }else{
             res.writeHead(404,{
                 "Content-Type":"text/html"
@@ -48,28 +89,9 @@ http.createServer(function (req, res) {
             res.end("<h1>404 Not Found</h1>");
         }
     });
-}).listen(8080,"127.0.0.1");
-console.log("Server running at http://127.0.0.1:8080");
-
-//设置路由
-var express = require("express");
-var bodyParser = require('body-parser');
-var app = express();
-app.get('/index', function(req, res){
-    fs.readFile('index.html', function(err,data){
-        res.setHeader('Cache-Control', 'no-cache');
-        res.json(JSON.parse(data));
-    });
 });
+console.log("Your Server is started @port 8080");
 
-//创建数据库连接
-//var sqlite3 = require('sqlite3').verbose();
-//var db = new sqlite3.Database("db/halo.db");
-//db.run("insert into user values('袁秋娟1','1234567','以西1','何向以西1','1b')");
-//db.close();
-//db.each("select * from user", function(err,row){
-//    console.log(row);
-//});
 //var fs = require('fs');
 //var path = require('path');
 //var express = require('express');
@@ -87,27 +109,6 @@ app.get('/index', function(req, res){
 //app.use(bodyParser.urlencoded({extended: true}));
 //
 //var db = new sqlite3.Database('db/halo.db');
-//
-//function getUserInfo(){
-//    db.each('select * from user', function(err, rows){
-//        if(!err){
-//            console.log(rows);
-//            content.push({
-//                nickname: rows.nickname,
-//                motto: rows.motto
-//            });
-//            console.log(content)
-//        } else {
-//            throw err;
-//        }
-//        db.close();
-//    });
-//}
-//getUserInfo();
-//
-//app.get('/create', function(req,res){
-//    console.log("1");
-//});
 //
 ////创建web服务
 //http.createServer(function(req,res){

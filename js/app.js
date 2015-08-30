@@ -1,11 +1,7 @@
 (function () {
-    var account = new Accounts();
-    account.set({
-        "nickname": "test",
-        "motto": "good good study"
-    });
+    var me = new Me();
     var login = new Login({
-        collection: account
+        model: me
     });
     var articles = new ArticleCollection();
     articles.set({
@@ -13,14 +9,12 @@
         "title":"我的天",
         "content":"蓝蓝的天上白云飘，我的花儿从中:-笑"
     });
-    var user = new User({
-        collection: account
-    });
     var write = new Write({
         collection: articles
     });
     var popup = new Popup({
-        collection: account
+        collection: articles,
+        model: me
     });
     var base = new Base();
 }());

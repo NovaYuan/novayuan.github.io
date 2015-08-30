@@ -11,7 +11,7 @@ haloWorldDb.serialize(function(){
         "id varchar not null,"+
         "primary key(id)"+
         ")");
-    var stmt = haloWorldDb.prepare("insert into user values('袁秋娟','123456','以西','何向以西','1a')");
+    var stmt = haloWorldDb.prepare("insert into user values('以西','123456','以西','何向以西','1a')");
     stmt.run();
     stmt.finalize();
 
@@ -33,7 +33,7 @@ haloWorldDb.serialize(function(){
         "primary key(id)"+
         " foreign key(author) references user(nickname)"+
         ")");
-    var stmt = haloWorldDb.prepare("insert into articles values('时间','今天是个好日子','today','说说','2015.8.19','null','袁秋娟','122')");
+    var stmt = haloWorldDb.prepare("insert into articles values('时间','今天是个好日子','today','说说','2015.8.19','null','以西','122')");
     stmt.run();
     stmt.finalize();
 
