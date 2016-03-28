@@ -16,5 +16,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "kube": "imperavi/kube#^3.0.2"
+  }
 }

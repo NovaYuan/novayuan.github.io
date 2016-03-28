@@ -5,7 +5,7 @@
   margin: 0
   padding: 0
   clear: both
-  font-family: "Microsoft YaHei",tahoma,arial,simsun
+  font-family: ProximaNova, 'Helvetica Neue', Helvetica, Arial, sans-serif
 
 a
   text-decoration: none
@@ -42,7 +42,7 @@ a
 
 body
   background: $background-color
-  padding: 0 18%
+  padding: 0 15%
 
   header
     background: #ffffff
@@ -59,7 +59,7 @@ ul
 
   .input-group
     border-bottom: 1px solid $nav-font-color
-    padding: 3px 10px
+    padding: 3px 10px 3px 0
 
     input
       outline: none
@@ -68,7 +68,7 @@ ul
 
 .portrait
   text-align: center
-  padding: 20px 0 40px
+  padding: 0 0 40px
   border-bottom: 1px solid $nav-font-color
 
   img
@@ -85,15 +85,32 @@ ul
     background-color: #fff
     color: orange
 
-  .nickname
-    font-weight: bold
-    font-size: 16px
-    margin-top: 16px
-    color: rgb(68,68,68)
   .motto
     font-size: 12px
     margin-top: 1.5em
     color: $nav-font-color
+
+.content
+  background: white
+  padding: 15px
+
+  .create-date
+    float: right
+    font-size: 12px
+    line-height: 26px
+    span
+      color: #4094c7
+
+  h1, h2, h3, h4, h5, h6, p
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+  h3
+    color: #555
+
+  p
+    text-indent: 2em
 
 .writings
   background: #fff
@@ -128,3 +145,8 @@ ul
       border-top: 3px solid #999
       border-bottom: 1px solid #999
       padding: 6px
+
+input:focus,
+textarea:focus
+  box-shadow: none
+  border: none

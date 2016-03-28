@@ -4,52 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <title>haloworld</title>
+  <link rel="stylesheet" href="bower_components/kube/css/kube.min.css"/>
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/screen.css"/>
 </head>
 <body>
-  <div class="loading">
-    <i class="fa fa-spinner fa-spin"></i>
-  </div>
+  <!--<div class="loading">-->
+    <!--<i class="fa fa-spinner fa-spin"></i>-->
+  <!--</div>-->
   <header>
     <nav>
       <ul>
-        <li><a href="#create" class="create" data-template="create.html">创建</a></li>
-        <li>私信</li>
-        <li class="input-group"><i class="fa fa-search"></i><input class="search" type="search"></li>
+        <li>
+          <a href="#create" class="create" data-template="create.html">创建</a>
+        </li>
+        <li>
+          <a href="#">私信</a>
+        </li>
+        <li class="input-group">
+          <div class="btn-append">
+            <input type="text" name="search" placeholder="search">
+            <span>
+              <i class="fa fa-search"></i>
+            </span>
+          </div>
+        </li>
       </ul>
     </nav>
+
     <div class="portrait">
-      <img src="images/lleft.jpg" alt="头像" title="{{nickname}}">
-      <p class="nickname">{{nickname}}</p>
-      <p class="motto">{{motto}}</p>
-      <i class="fa fa-circle-o"></i>
+      <script id="user-info" type="text/x-handlebars-template">
+        <h2 class="big nickname">{{nickname}}</h2>
+        <p class="small motto">{{motto}}</p>
+      </script>
     </div>
+
   </header>
-  <div class="writings">
-    <div class="about-article">
-      <span class="sign fa fa-pencil"></span><br/>
-    </div>
-    <div class="article">
-      <h3 class="title">{{title}}</h3>
-      <div class="content">{{content}}</div>
-    </div>
-    <div class="operate">
-      <span class="date">{{date}}</span>
-    </div>
+  <div class="content">
+    <script type="text/x-handlebars-template" id="article-list-template">
+      <div class="articles">
+        {{#each lists}}
+          <div class="article-{{id}}">
+
+            <div class="article">
+              <h3>
+                <a href="">{{title}}</a>
+                {{#each tags}}
+                  <samp>{{value}}</samp>
+                {{/each}}
+
+                <div class="create-date">
+                  <span>{{createDate}}</span>
+                </div>
+              </h3>
+              <p class="">{{content}}</p>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </script>
   </div>
   <div class='popup'></div>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/handlebars/handlebars.js"></script>
 <script src="bower_components/underscore/underscore-min.js"></script>
 <script src="bower_components/backbone/backbone.js"></script>
-<script src="js/view/login.js"></script>
+
+<script src="js/common.js"></script>
 <script src="js/model/Me.js"></script>
-<script src="js/model/ListCollection.js"></script>
-<script src="js/view/username.js"></script>
-<script src="js/view/write.js"></script>
-<script src="js/view/popup.js"></script>
-<script src="js/view/base.js"></script>
+<script src="js/model/List.js"></script>
+<script src="js/view/userInfo.js"></script>
+<script src="js/view/listView.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

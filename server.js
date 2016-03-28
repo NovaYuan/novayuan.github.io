@@ -8,16 +8,16 @@ var url  = require("url"),
     http = require("http").createServer(app).listen(8080,"127.0.0.1");
 
 //创建数据库连接
-var sqlite3 = require('sqlite3').verbose(),
-    db = new sqlite3.Database("db/halo.db");
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+//var sqlite3 = require('sqlite3').verbose(),
+//    db = new sqlite3.Database("db/halo.db");
+//
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({extended: true}));
 
 //首页数据
-app.get('/', function(req,res){
-    db.all()
-});
+//app.get('/', function(req,res){
+//    db.all()
+//});
 
 //登录页面验证
 app.post('/me', function(req,res){
