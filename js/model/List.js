@@ -10,8 +10,14 @@ var List = Backbone.Model.extend({
                 createDate: Common.getDate("today"),
                 title: 'backbone学习经验',
                 tags: [
-                    {value: 'backbone'},
-                    {value: 'Handlebar'}
+                    {
+                        value: 'backbone',
+                        "class": "label label-primary"
+                    },
+                    {
+                        value: 'Handlebar',
+                        "class": "label label-success"
+                    }
                 ],
                 content: '今天学习backbone+handlebars构建网站，争取今年做出一个网站出来'
             },
@@ -19,8 +25,14 @@ var List = Backbone.Model.extend({
                 createDate: new Date(),
                 title: 'handlebars学习经验',
                 tags: [
-                    {value: 'backbone'},
-                    {value: 'Handlebar'}
+                    {
+                        value: 'backbone',
+                        "class": "label label-primary"
+                    },
+                    {
+                        value: 'Handlebar',
+                        "class": "label label-success"
+                    }
                 ],
                 content: '今天学习backbone+handlebars构建网站，争取今年做出一个网站出来'
             }

@@ -6,6 +6,7 @@ var UserInfo = Backbone.View.extend({
     el: '.portrait',
     initialize: function(){
         this.template = Handlebars.compile($("#user-info").html());
+        console.log(this.collection);
         this.render();
     },
     render: function(){

@@ -45,18 +45,26 @@
       <div class="articles">
         {{#each lists}}
           <div class="article-{{id}}">
-
+            <div class="opt-group">
+              <button class="btn btn-green small">
+                <i class="fa fa-edit"></i>
+              </button><br/>
+              <button class="btn btn-primary small">
+                <i class="fa fa-star"></i>
+              </button>
+            </div>
             <div class="article">
               <h3>
                 <a href="">{{title}}</a>
-                {{#each tags}}
-                  <samp>{{value}}</samp>
-                {{/each}}
-
                 <div class="create-date">
                   <span>{{createDate}}</span>
                 </div>
               </h3>
+              <p class="tags">
+                {{#each tags}}
+                <label style="color: {{color}}">{{value}}</label>
+                {{/each}}
+              </p>
               <p class="">{{content}}</p>
             </div>
           </div>
@@ -75,6 +83,7 @@
 <script src="js/model/List.js"></script>
 <script src="js/view/userInfo.js"></script>
 <script src="js/view/listView.js"></script>
+<script src="js/collection/haloCollection.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

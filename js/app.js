@@ -1,5 +1,11 @@
 (function () {
     var me = new Me();
+    me.url = "/me";
+    me.fetch({
+       success: function(model, text){
+           console.log(model, text)
+       }
+    });
     me.set({
         username: 'test',
         password: '1234',
@@ -19,8 +25,14 @@
                 createDate: Common.getDate("today").data,
                 title: 'backbone学习经验',
                 tags: [
-                    {value: 'backbone'},
-                    {value: 'Handlebar'}
+                    {
+                        value: 'backbone',
+                        color: '#4094c7'
+                    },
+                    {
+                        value: 'Handlebar',
+                        color: '#0a8754'
+                    }
                 ],
                 content: '今天学习backbone+handlebars构建网站，争取今年做出一个网站出来'
             },
@@ -29,8 +41,14 @@
                 createDate: Common.getDate("today").data,
                 title: 'handlebars学习经验',
                 tags: [
-                    {value: 'backbone'},
-                    {value: 'Handlebar'}
+                    {
+                        value: 'backbone',
+                        color: '#4094c7'
+                    },
+                    {
+                        value: 'Handlebar',
+                        color: '#0a8754'
+                    }
                 ],
                 content: '今天学习backbone+handlebars构建网站，争取今年做出一个网站出来'
             }

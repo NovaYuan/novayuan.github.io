@@ -47,6 +47,21 @@ body
   header
     background: #ffffff
 
+  nav
+    ul
+      li
+        a
+          text-decoration: none
+          &:link
+            color: rgb(153,153,153)
+          &:visited
+            color: rgb(153,153,153)
+          &:hover
+            color: black
+          &:active
+            color: rgb(153,153,153)
+    
+
 ul
   list-style: none
   padding: 25px 0
@@ -59,12 +74,13 @@ ul
 
   .input-group
     border-bottom: 1px solid $nav-font-color
-    padding: 3px 10px 3px 0
+    padding: 0
 
     input
       outline: none
       border: none
       margin-left: 5px
+      padding: 0
 
 .portrait
   text-align: center
@@ -94,6 +110,20 @@ ul
   background: white
   padding: 15px
 
+  .articles
+    .opt-group
+      width: 6%
+      display: inline-block
+      vertical-align: top
+      padding-top: 4px
+      button
+        i
+          color: white
+
+    .article
+      width: 93%
+      display: inline-block
+
   .create-date
     float: right
     font-size: 12px
@@ -107,10 +137,17 @@ ul
     white-space: nowrap
 
   h3
-    color: #555
+    color: #666
+    margin-bottom: 0
 
   p
     text-indent: 2em
+    color: rgb(153,153,153)
+
+  .tags
+    margin-bottom: 0
+    label
+      margin-right: 10px
 
 .writings
   background: #fff

@@ -1,9 +1,12 @@
 'use strict';
 var Me = Backbone.Model.extend({
-  url: '/',
+  url: '/me',
   defaults: {
     username: 'test',
     password: '1234'
+  },
+  parse: function(res, options){
+    console.log(res, options)
   }
 });
 
