@@ -2,10 +2,14 @@
     var me,
         user,
         list,
-        lists;
+        lists,
+        baseview,
+        modal;
 
     me = new Me();
     list = new List();
+    baseview = new BaseView();
+    modal = new Modal(list);
 
     me.url = "/me.node";
     list.url = '/list.node';

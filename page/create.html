@@ -1,19 +1,12 @@
 <div class="create-popup">
-<div class="name">
-  <span class="nickname">{{nickname}}</span>
-</div>
-<form>
+<form id="save-article">
   <div class="input-group">
-    <input type="text" class="title" placeholder="标题"/>
-    <textarea class="content" placeholder="内容"></textarea>
+    <input type="text" class="title" placeholder="标题" name="title"/>
+    <textarea class="content" placeholder="内容" name="content"></textarea>
     <div class="group">
       <i class="fa fa-tag"></i>
-      <input type="text" class="tag" placeholder="添加文章相关标签">
+      <input type="text" class="tag" placeholder="添加文章相关标签" name="tags">
     </div>
-  </div>
-  <div class="btn-group">
-    <button type="button" class="dismiss" value="dismiss">取消</button>
-    <button type="button" class="submit article-submit" value="submit">发布</button>
   </div>
 </form>
 </div>

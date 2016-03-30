@@ -11,13 +11,18 @@ body
 a
   text-decoration: none
   &:link
-    color: $nav-font-color
+    color: $nav-font-color!important
   &:visited
-    color: $nav-font-color
+    color: $nav-font-color!important
   &:hover
-    color: black
+    color: black!important
   &:active
-    color: $nav-font-color
+    color: $nav-font-color!important
+
+input:focus,
+textarea:focus
+  border-color: #2575ed
+  box-shadow: none!important
 
 .popup
   display: none
