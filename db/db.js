@@ -1,6 +1,6 @@
 //用sqlite3创建数据库
 var sqlite3 = require('sqlite3').verbose();
-var haloWorldDb = new sqlite3.Database('halo.db');
+var haloWorldDb = new sqlite3.Database(':memory:');
 
 haloWorldDb.serialize(function(){
     haloWorldDb.run("create table user (" +
@@ -24,7 +24,7 @@ haloWorldDb.serialize(function(){
     haloWorldDb.run("create table articles (" +
         "title varchar not null," +
         "content varchar not null,"+
-        "tag varchar,"+
+        "tags varchar,"+
         "type varchar,"+
         "createTime date,"+
         "modifyTime date,"+
