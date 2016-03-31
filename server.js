@@ -11,6 +11,7 @@ var http = require('http'),
     express = require("express"),
     bodyParser = require('body-parser'),
     app = express(),
+    articleLength = 0,
     connection;
 
 //创建数据库连接
@@ -67,25 +68,43 @@ http.createServer( function (request, response) {
                 if(results){
                     response.setHeader('Cache-Control', 'no-cache');
                     response.writeHead(200, {'Content-Type': 'application/json;charset=utf-8'});
+                    articleLength = results.length;
                     response.end(JSON.stringify(results));
                 }
             }
         );
     }else if(pathname == "/list/save.node"){
-        console.log(request.method);
-        console.log(request);
+        var saved = [];
         request.on("data", function(data){
-            console.log("服务器接收到的数据：　"+ data);
-
-            console.log(data.title, data.content, data.tags)
+            saved.push(data);
+            console.log("服务器接收到的数据：　"+ saved);
         });
         request.on("end", function(){
-            console.log('客户端请求数据全部接收完毕');
+            var data = Buffer.concat(saved).toString(),
+                json = JSON.parse(data),
+                createDate = (new Date()).valueOf(),
+                insertSql = 'insert into articles(title, content, tags, stars, createDate, modifyDate, userid) value(?, ?, ?, ?, ?, ?, 0)',
+                insertParams = [json.title, json.content, json.tags, 0, createDate, createDate];
+
+            connection.query(insertSql, insertParams, function(err, result){
+                if(err){
+                    console.log('创建失败 - ',err.message);
+                    return;
+                }else{
+                    var success = {};
+
+                    success = {
+                        status: "success",
+                        content: "创建内容成功!"
+                    };
+                    response.setHeader('Cache-Control', 'no-cache');
+                    response.writeHead(200, {'Content-Type': 'application/json;charset=utf-8'});
+                    articleLength += 1;
+                    response.end(JSON.stringify(success));
+                }
+            });
         });
-        response.end();
-        //connection.query(
-        //    'insert into articles(title, content, tags) value()'
-        //)
+
     }else{
         fs.readFile(pathname.substr(1), "binary", function (err, data) {
             if (err) {

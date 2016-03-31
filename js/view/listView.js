@@ -9,8 +9,20 @@ var ListView = Backbone.View.extend({
         this.render();
     },
     render: function(){
-        var lists = {
-            lists: this.model.toJSON()
+        var data = this.model.toJSON(),
+            lists = {};
+
+        $.each(data, function(i, o){
+            if(o.createDate){
+                o.createDate = Common.stampToDate(parseInt(o.createDate), false, true)
+            }
+            if(o.modifyDate){
+                o.modifyDate = Common.stampToDate(parseInt(o.createDate), false, true)
+            }
+        });
+
+        lists = {
+            lists: data
         };
 
         this.$el.html(this.template(lists));

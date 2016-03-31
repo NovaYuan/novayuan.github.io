@@ -6,29 +6,43 @@ var BaseView = Backbone.View.extend({
 });
 
 var Modal = (function(list){
+    var alertInfo = function(messages, color){
+        var $message = '<div id="create-msg" class="tools-message tools-message-'+ color +'">'+ messages +'</div>';
+
+        if($("#create-msg").length <= 0){
+            $("body").append($message);
+            $("#create-msg").message();
+        }else{
+            $("#create-msg").message();
+        }
+
+        setTimeout(function(){
+            $("#create-msg").hide()
+        }, 2000)
+    };
     $(".create").on('loading.tools.modal', function(modal) {
         this.createCancelButton('关闭');
         var buttonAction = this.createActionButton('保存');
 
         buttonAction.on('click', $.proxy(function() {
-            var list = new List(),
+            var saveList = new List(),
                 formData = {
                     title: $("input[name=title]").val(),
                     content: $("textarea[name=content]").val(),
                     tags: $("input[name=tags]").val()
                 };
 
-            list.url = '/list/save.node';
-            list.save(formData, {
+            saveList.url = '/list/save.node';
+
+            saveList.save(formData, {
                 success: function(model, options){
-                    console.log(options)
+                    alertInfo(options.content, "green")
                 },
                 error: function(data){
-                    console.log(data)
+                    alertInfo(data, "red")
                 }
             });
-            this.modal.close();
-
+            this.close();
         }, this));
     });
 });
