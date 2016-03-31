@@ -58,7 +58,7 @@ http.createServer( function (request, response) {
         );
     }else if(pathname == "/list.node"){
         connection.query(
-            'select * from articles',
+            'select * from articles order by createDate desc',
             function selectCb(err, results, fields){
                 if(err){
                     res.status(404).end(err);

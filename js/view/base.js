@@ -36,7 +36,7 @@ var Modal = (function(list){
 
             saveList.save(formData, {
                 success: function(model, options){
-                    alertInfo(options.content, "green")
+                    alertInfo(options.content, "green");
                 },
                 error: function(data){
                     alertInfo(data, "red")

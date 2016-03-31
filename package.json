@@ -1,0 +1,28 @@
+{
+  "name": "novayuan.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "compass": "^0.1.1",
+    "restify": "^4.0.0",
+    "sass": "^0.5.0",
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NovaYuan/novayuan.github.io.git"
+  },
+  "author": "yuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NovaYuan/novayuan.github.io/issues"
+  },
+  "homepage": "https://github.com/NovaYuan/novayuan.github.io"
+}
