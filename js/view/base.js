@@ -2,10 +2,16 @@ var BaseView = Backbone.View.extend({
     el: "body",
     events: {
         "loading.tools.modal .create": "addFooter"
+    },
+    initialize: function(){
+        this.render();
+    },
+    render: function(){
+        $(".loading").fadeOut();
     }
 });
 
-var Modal = (function(list){
+var Modal = (function(list, listc){
     var alertInfo = function(messages, color){
         var $message = '<div id="create-msg" class="tools-message tools-message-'+ color +'">'+ messages +'</div>';
 
@@ -25,18 +31,18 @@ var Modal = (function(list){
         var buttonAction = this.createActionButton('保存');
 
         buttonAction.on('click', $.proxy(function() {
-            var saveList = new List(),
-                formData = {
+            var formData = {
                     title: $("input[name=title]").val(),
                     content: $("textarea[name=content]").val(),
                     tags: $("input[name=tags]").val()
                 };
 
-            saveList.url = '/list/save.node';
+            list.url = '/list/save.node';
 
-            saveList.save(formData, {
+            list.save(formData, {
                 success: function(model, options){
-                    alertInfo(options.content, "green")
+                    alertInfo(options.content, "green");
+                    listc.unshift(formData);
                 },
                 error: function(data){
                     alertInfo(data, "red")

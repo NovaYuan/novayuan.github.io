@@ -4,12 +4,17 @@
 'use strict';
 var ListView = Backbone.View.extend({
     el: '.content',
+    events: {
+        'click .btn-green': 'edit_clickHandler'
+    },
     initialize: function(){
         this.template = Handlebars.compile($("#article-list-template").html());
+        this.collection.on("add", this.collection_addHandler, this);
+        console.log(this.collection);
         this.render();
     },
     render: function(){
-        var data = this.model.toJSON(),
+        var data = this.collection.toJSON(),
             lists = {};
 
         $.each(data, function(i, o){
@@ -26,5 +31,18 @@ var ListView = Backbone.View.extend({
         };
 
         this.$el.html(this.template(lists));
+        return this;
+    },
+    collection_addHandler: function(model){
+        console.log(model);
+        var template = $(this.template({list: [model.toJSON()]}));
+        template.attr('id', model.cid);
+
+        this.$el.append(template);
+    },
+    edit_clickHandler: function(e){
+        var id = $(e.currentTarget).data("id");
+
+        //$(this).modal()
     }
 });

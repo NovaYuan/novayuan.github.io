@@ -1,18 +1,20 @@
-(function () {
+var App = (function () {
     var me,
         user,
         list,
         lists,
+        listc,
         baseview,
         modal;
 
     me = new Me();
     list = new List();
+    listc = new ListCollection();
     baseview = new BaseView();
-    modal = new Modal(list);
+    modal = new Modal(list, listc);
 
     me.url = "/me.node";
-    list.url = '/list.node';
+    listc.url = '/list.node';
 
     me.fetch({
         success: function(model, options){
@@ -26,11 +28,11 @@
         }
     });
 
-    list.fetch({
+    listc.fetch({
         success: function(model, options){
-            list.set(options);
+            listc.add(options);
             lists = new ListView({
-                model: list
+                collection: listc
             });
         },
         error: function(data){
