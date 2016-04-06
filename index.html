@@ -44,32 +44,47 @@
     <script type="text/x-handlebars-template" id="article-list-template">
       <div class="articles">
         {{#each lists}}
-          <div class="article-{{id}}">
-            <div class="opt-group">
-              <button class="btn btn-green small" data-tools="modal" data-width="700" data-title="修改文章" data-content="/page/create.html">
-                <i class="fa fa-edit"></i>
-              </button><br/>
-              <button class="btn btn-primary small">
-                <i class="fa fa-star"></i>
-              </button>
-            </div>
-            <div class="article">
-              <h3>
-                <a href="">{{title}}</a>
-                <div class="create-date">
-                  <span>{{createDate}}</span>
-                </div>
-              </h3>
-              <p class="tags">
-                <label style="color: #0a8754">{{tags}}</label>
-              </p>
-              <p class="">{{content}}</p>
-            </div>
+        <div class="article-{{id}}">
+          <div class="opt-group">
+            <button class="btn btn-green small" data-tools="modal" data-width="700" data-title="修改文章" data-content="/page/create.html">
+              <i class="fa fa-edit"></i>
+            </button><br/>
+            <button class="btn btn-primary small">
+              <i class="fa fa-star"></i>
+            </button>
           </div>
+          <div class="article">
+            <h3>
+              <a href="#/list/view/{{id}}">{{title}}</a>
+              <div class="create-date">
+                <span>{{createDate}}</span>
+              </div>
+            </h3>
+            <p class="tags">
+              <label style="color: #0a8754">{{tags}}</label>
+            </p>
+            <p class="">{{content}}</p>
+          </div>
+        </div>
         {{/each}}
       </div>
     </script>
+    <script type="text/x-handlebars-template" id="article-view-template">
+      <div class="article-view">
+        <div class="article-header">
+          <h2>{{title}}</h2>
+          <p>
+            <span class="createDate">{{createDate}}</span>
+            <span class="createName">{{username}}</span>
+          </p>
+        </div>
+        <div class="article-content">
+          {{content}}
+        </div>
+      </div>
+    </script>
   </div>
+
   <div class='popup'></div>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/kube/js/kube.min.js"></script>
@@ -78,12 +93,15 @@
 <script src="bower_components/backbone/backbone.js"></script>
 
 <script src="js/common.js"></script>
+<script src="js/model/View.js"></script>
 <script src="js/model/Me.js"></script>
 <script src="js/model/List.js"></script>
 <script src="js/view/userInfo.js"></script>
 <script src="js/view/listView.js"></script>
+<script src="js/view/single.js"></script>
 <script src="js/view/base.js"></script>
 <script src="js/collection/haloCollection.js"></script>
+<script src="js/route/Real.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

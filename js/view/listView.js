@@ -10,7 +10,7 @@ var ListView = Backbone.View.extend({
     initialize: function(){
         this.template = Handlebars.compile($("#article-list-template").html());
         this.collection.on("add", this.collection_addHandler, this);
-        console.log(this.collection);
+
         this.render();
     },
     render: function(){
@@ -34,15 +34,14 @@ var ListView = Backbone.View.extend({
         return this;
     },
     collection_addHandler: function(model){
-        console.log(model);
-        var template = $(this.template({list: [model.toJSON()]}));
-        template.attr('id', model.cid);
+        var template = this.template(model.toJSON());
 
-        this.$el.append(template);
+        this.$el.append($(template)); //无效，不知道怎么局部刷新，好奇怪
+        location.reload(true); 
     },
     edit_clickHandler: function(e){
         var id = $(e.currentTarget).data("id");
 
-        //$(this).modal()
+        console.log(this.collection)
     }
 });
