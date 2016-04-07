@@ -1,0 +1,24 @@
+<script type="text/x-handlebars-template" id="article-view-template">
+    <div class="article-opts">
+        <ul>
+            <li>
+                <a class="btn btn-green small" data-tools="modal" data-width="700" data-title="修改文章" data-content="/page/create.html"><i class="fa fa-edit"></i></a>
+            </li>
+            <li>
+                <a class="btn btn-red small" data-tools="modal" data-width="200" data-title="删除文章"><i class="fa fa-trash"></i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="article-view">
+        <div class="article-header">
+            <h2>{{title}}</h2>
+            <p>
+                <span class="createDate">{{createDate}}</span>
+                <span class="createName">{{username}}</span>
+            </p>
+        </div>
+        <div class="article-content">
+            {{content}}
+        </div>
+    </div>
+</script>

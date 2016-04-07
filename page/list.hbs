@@ -1,0 +1,28 @@
+<script type="text/x-handlebars-template" id="article-list-template">
+    <div class="articles">
+        {{#each lists}}
+            <div class="article-list article-{{id}}">
+                <div class="opt-group">
+                    <!--<button class="btn btn-green small" data-tools="modal" data-width="700" data-title="修改文章" data-content="/page/create.html">-->
+                        <!--<i class="fa fa-edit"></i>-->
+                    <!--</button><br/>-->
+                    <button class="btn btn-green small">
+                        <i class="fa fa-star"></i>
+                    </button>
+                </div>
+                <div class="article">
+                    <h3>
+                        <a href="#/list/view/{{id}}">{{title}}</a>
+                        <div class="create-date">
+                            <span>{{createDate}}</span>
+                        </div>
+                    </h3>
+                    <p class="tags">
+                        <label style="color: #0a8754">{{tags}}</label>
+                    </p>
+                    <p class="">{{content}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</script>

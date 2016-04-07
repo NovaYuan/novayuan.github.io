@@ -5,8 +5,7 @@
 var Single = Backbone.View.extend({
     el: ".content",
     initialize: function(){
-        this.template = Handlebars.compile($("#article-view-template").html());
-        this.render()
+        this.getPage();
     },
     render: function(){
         var data = this.model.toJSON()[0],
@@ -14,18 +13,16 @@ var Single = Backbone.View.extend({
 
         data.createDate = Common.stampToDate(parseInt(data.createDate), false, true);
         data.modifyDate = Common.stampToDate(parseInt(data.createDate), false, true);
-        //$.each(data, function(i, o){
-        //    console.log(o.createDate);
-        //    if(o.createDate){
-        //        o.createDate = Common.stampToDate(parseInt(o.createDate), false, true)
-        //    }
-        //    if(o.modifyDate){
-        //        o.modifyDate = Common.stampToDate(parseInt(o.createDate), false, true)
-        //    }
-        //});
-
         lists = data;
 
         this.$el.html(this.template(lists));
+    },
+    getPage: function(){
+        var that = this;
+
+        $.get("/page/listview.hbs", function(response){
+            that.template = Handlebars.compile($(response).html());
+            that.render();
+        })
     }
 });

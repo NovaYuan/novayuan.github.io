@@ -27,6 +27,7 @@ var Modal = (function(list, listc){
         }, 2000)
     };
     $(".create").on('loading.tools.modal', function(modal) {
+        $(".modal-box .footer").empty();
         this.createCancelButton('关闭');
         var buttonAction = this.createActionButton('保存');
 
@@ -43,6 +44,7 @@ var Modal = (function(list, listc){
                 success: function(model, options){
                     alertInfo(options.content, "green");
                     formData.createDate = Common.stampToDate((new Date()).valueOf(), false, true);
+                    console.log(formData.createDate);
                     formData.stars = 0;
                     listc.unshift(formData);
                 },

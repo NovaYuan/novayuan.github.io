@@ -8,10 +8,8 @@ var ListView = Backbone.View.extend({
         'click .btn-green': 'edit_clickHandler'
     },
     initialize: function(){
-        this.template = Handlebars.compile($("#article-list-template").html());
+        this.getPage();
         this.collection.on("add", this.collection_addHandler, this);
-
-        this.render();
     },
     render: function(){
         var data = this.collection.toJSON(),
@@ -33,11 +31,19 @@ var ListView = Backbone.View.extend({
         this.$el.html(this.template(lists));
         return this;
     },
+    getPage: function(){
+        var that = this;
+        $.get("/page/list.hbs", function(response){
+            that.template = Handlebars.compile($(response).html());
+            that.render();
+        })
+    },
     collection_addHandler: function(model){
-        var template = this.template(model.toJSON());
+        //var template = this.template(model.toJSON());
 
-        this.$el.append($(template)); //无效，不知道怎么局部刷新，好奇怪
-        location.reload(true); 
+        //this.$el.prepend($(template)); //无效，不知道怎么局部刷新，好奇怪
+        //location.reload(true);
+        this.getPage()
     },
     edit_clickHandler: function(e){
         var id = $(e.currentTarget).data("id");
