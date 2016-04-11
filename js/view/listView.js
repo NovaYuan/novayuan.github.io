@@ -39,11 +39,16 @@ var ListView = Backbone.View.extend({
         })
     },
     collection_addHandler: function(model){
-        //var template = this.template(model.toJSON());
-
-        //this.$el.prepend($(template)); //无效，不知道怎么局部刷新，好奇怪
-        //location.reload(true);
-        this.getPage()
+        var collection = this.collection,
+            that = this;
+        collection.fetch({
+            url: "/list.node",
+            success: function(model, options){
+                collection.add(options);
+                that.getPage();
+            }
+        });
+        console.log(this.collection);
     },
     edit_clickHandler: function(e){
         var id = $(e.currentTarget).data("id");

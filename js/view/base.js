@@ -43,9 +43,6 @@ var Modal = (function(list, listc){
             list.save(formData, {
                 success: function(model, options){
                     alertInfo(options.content, "green");
-                    formData.createDate = Common.stampToDate((new Date()).valueOf(), false, true);
-                    console.log(formData.createDate);
-                    formData.stars = 0;
                     listc.unshift(formData);
                 },
                 error: function(data){
