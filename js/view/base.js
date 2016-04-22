@@ -17,39 +17,34 @@ var Modal = (function(list, listc){
 
         if($("#create-msg").length <= 0){
             $("body").append($message);
-            $("#create-msg").message();
+            $("#create-msg").show();
         }else{
-            $("#create-msg").message();
+            $("#create-msg").show();
         }
 
         setTimeout(function(){
             $("#create-msg").hide()
         }, 2000)
     };
-    $(".create").on('loading.tools.modal', function(modal) {
-        $(".modal-box .footer").empty();
-        this.createCancelButton('关闭');
-        var buttonAction = this.createActionButton('保存');
 
-        buttonAction.on('click', $.proxy(function() {
-            var formData = {
-                    title: $("input[name=title]").val(),
-                    content: $("textarea[name=content]").val(),
-                    tags: $("input[name=tags]").val()
-                };
+    $(".create-btn").on("click", function(){
+        var formData = {
+            title: $("input[name=title]").val(),
+            content: $("textarea[name=content]").val(),
+            tags: $("input[name=tags]").val()
+        };
 
-            list.url = '/list/save.node';
+        list.url = '/list/save.node';
 
-            list.save(formData, {
-                success: function(model, options){
-                    alertInfo(options.content, "green");
-                    listc.unshift(formData);
-                },
-                error: function(data){
-                    alertInfo(data, "red")
-                }
-            });
-            this.close();
-        }, this));
+        list.save(formData, {
+            success: function(model, options){
+                alertInfo(options.content, "green");
+                listc.unshift(formData);
+            },
+            error: function(data){
+                alertInfo(data, "red")
+            }
+        });
+        $("#create-modal").modal("hide")
     });
 });

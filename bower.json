@@ -18,7 +18,7 @@
     "tests"
   ],
   "dependencies": {
-    "kube": "imperavi/kube#3.0.2",
+    "kube": "imperavi/kube#^3.0.2",
     "bootstrap": "^3.3.6"
   }
 }
