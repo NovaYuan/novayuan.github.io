@@ -27,7 +27,7 @@ var Modal = (function(list, listc){
         }, 2000)
     };
 
-    $(".create-btn").on("click", function(){
+    $(".create-btn").unbind("click").bind("click", function(){
         var formData = {
             title: $("input[name=title]").val(),
             content: $("textarea[name=content]").val(),
