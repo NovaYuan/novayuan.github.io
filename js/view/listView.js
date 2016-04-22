@@ -3,11 +3,12 @@
  */
 'use strict';
 var ListView = Backbone.View.extend({
-    el: '.content',
+    el: '#content',
     events: {
         'click .btn-green': 'edit_clickHandler'
     },
     initialize: function(){
+        $(".portrait").show();
         this.getPage();
         this.collection.on("add", this.collection_addHandler, this);
     },

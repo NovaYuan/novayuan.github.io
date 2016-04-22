@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <title>haloworld</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="bower_components/kube/css/kube.min.css"/>
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/screen.css"/>
@@ -14,13 +15,16 @@
   </div>
   <header>
     <nav>
-      <ul>
+      <ul class="col-sm-12">
         <li>
-          <a class="create" data-tools="modal" data-width="700" data-title="创建文章" data-content="/page/create.html">创建</a>
+          <a id="create-article" class="create"
+             data-toggle="modal"
+             data-target="#create-modal"
+             data-title="创建文章">创建</a>
         </li>
-        <li>
-          <a href="#">私信</a>
-        </li>
+        <!--<li class="col-sm-3">-->
+          <!--<a href="#">私信</a>-->
+        <!--</li>-->
         <li class="input-group">
           <div class="btn-append">
             <input type="text" name="search" placeholder="search">
@@ -38,13 +42,45 @@
         <p class="small motto">{{motto}}</p>
       </script>
     </div>
-
   </header>
-  <div class="content"></div>
+  <div id="content"></div>
 
   <div class='popup'></div>
+
+  <div class="modal fade" id="create-modal" tabindex="-1" role="dialog" aria-labelledby="create-article" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h3 name="header" class="modal-title">创建文章</h3>
+        </div>
+        <div class="modal-body clearfix">
+          <div class="form-group clearfix">
+            <form id="save-article">
+              <div class="input-group">
+                <input type="text" class="title" placeholder="标题" name="title"/>
+                <textarea class="content" placeholder="内容" name="content"></textarea>
+                <div class="group">
+                  <i class="fa fa-tag"></i>
+                  <input type="text" class="tag" placeholder="添加文章相关标签" name="tags">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="button" class="btn btn-green">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/kube/js/kube.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/handlebars/handlebars.js"></script>
 <script src="bower_components/underscore/underscore-min.js"></script>
 <script src="bower_components/backbone/backbone.js"></script>

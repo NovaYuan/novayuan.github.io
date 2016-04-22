@@ -54,13 +54,15 @@ body
   padding: 0 15%
 
   header
-    background: #ffffff
+    background: $background-color
 
   nav
     ul
       li
         a
           text-decoration: none
+          color: rgb(153,153,153)
+
           &:link
             color: rgb(153,153,153)
           &:visited
@@ -69,6 +71,9 @@ body
             color: black
           &:active
             color: rgb(153,153,153)
+
+      .input-group
+        display: inline-block
     
 
 ul
@@ -81,6 +86,11 @@ ul
     margin-right: 6%
     font-size: 12px
 
+    a
+      &:hover
+        cursor: pointer
+        text-decoration: none
+
   .input-group
     border-bottom: 1px solid $nav-font-color
     padding: 0
@@ -90,11 +100,11 @@ ul
       border: none
       margin-left: 5px
       padding: 0
+      background: $background-color
 
 .portrait
   text-align: center
   padding: 0 0 40px
-  border-bottom: 1px solid $nav-font-color
 
   img
     width: 150px
@@ -115,32 +125,57 @@ ul
     margin-top: 1.5em
     color: $nav-font-color
 
-.content
+#content
   position: relative
   background: white
   padding: 15px
+  border-radius: 10px
+  margin-bottom: 20px
+  @include box-shadow(1px -1px 3px #B9B9B3)
 
   .articles
+    padding: 0 40px
+
+    .article-list
+      border-bottom: 1px dashed #eee
+      padding: 20px 0 10px
+      cursor: pointer
+
+      &:hover
+        border-bottom: 1px solid orangered
+        @include transition(border-bottom 1s)
+
+      a
+        &:hover
+          text-decoration: none
+
+      &:last-child
+        border-bottom: none
+
     .opt-group
-      width: 5%
+      width: 4%
       display: inline-block
       vertical-align: top
       padding-top: 4px
       button
-        padding: .45em .85em
+        padding: .25em .55em
         i
           color: white
 
     .article
       width: 94%
       display: inline-block
+      p
+        margin: 10px 0
 
   .create-date
     float: right
     font-size: 12px
     line-height: 26px
+
+    i,
     span
-      color: #4094c7
+      color: skyblue
 
   h1, h2, h3, h4, h5, h6, p
     overflow: hidden
@@ -157,9 +192,16 @@ ul
     color: rgb(153,153,153)
 
   .tags
-    margin-bottom: 0
+    text-indent: .7em
+    margin-bottom: 0!important
+    font-weight: normal
+
     label
       margin-right: 10px
+      color: pink
+
+      i
+        color: pink
 
 .writings
   background: #fff
@@ -199,3 +241,34 @@ input:focus,
 textarea:focus
   box-shadow: none
   border: none
+
+label
+  font-weight: normal
+
+.btn-green
+  background: #2CD64D
+
+.modal
+  header
+    background: #fff
+
+  .modal-body
+    padding: 15px 30px
+
+    .form-group
+      margin-bottom: 0
+
+      #save-article
+        margin-bottom: 0
+
+        .input-group
+          width: 100%!important
+
+          input,
+          textarea
+            width: 100%!important
+
+          .group
+            width: 100%!important
+            input
+              width: auto!important

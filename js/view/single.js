@@ -3,8 +3,9 @@
  */
 'use strict';
 var Single = Backbone.View.extend({
-    el: ".content",
+    el: "#content",
     initialize: function(){
+        $(".portrait").hide();
         this.getPage();
     },
     render: function(){
