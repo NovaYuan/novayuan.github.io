@@ -8,7 +8,8 @@ var ListView = Backbone.View.extend({
         'click .btn-green': 'edit_clickHandler'
     },
     initialize: function(){
-        $(".portrait").show();
+        $("header").show();
+        $(this.el).css("marginTop", '0');
         this.getPage();
         this.collection.on("add", this.collection_addHandler, this);
     },

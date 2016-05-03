@@ -5,7 +5,9 @@
 var Single = Backbone.View.extend({
     el: "#content",
     initialize: function(){
-        $(".portrait").hide();
+        $("header").hide();
+        $(this.el).css("marginTop", '50px');
+
         this.getPage();
     },
     render: function(){
